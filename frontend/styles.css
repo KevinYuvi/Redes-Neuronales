@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.badge {
+    display: inline-block;
+    background: #e0edff;
+    color: #2563eb;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    margin: 18px 0 10px;
+    font-size: 40px;
+}
+
+.hero p {
+    color: #64748b;
+    font-size: 18px;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+canvas {
+    display: block;
+    width: 280px;
+    height: 280px;
+    margin: 20px auto;
+    background: black;
+    border-radius: 18px;
+    border: 3px solid #dbeafe;
+    touch-action: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 13px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.primary {
+    background: #2563eb;
+    color: white;
+}
+
+.secondary {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.results {
+    display: grid;
+    gap: 16px;
+}
+
+.result-box {
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 20px;
+    background: #f9fafb;
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    color: white;
+}
+
+.python-logo {
+    background: linear-gradient(135deg, #3776ab, #ffd43b);
+}
+
+.rust-logo {
+    background: linear-gradient(135deg, #ce422b, #111827);
+}
+
+.prediction {
+    font-size: 52px;
+    font-weight: 800;
+    margin: 12px 0;
+    color: #111827;
+}
+
+.confidence {
+    color: #64748b;
+}
+
+.loading {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}
+
+.empty {
+    color: #94a3b8;
+}
+
+@media (max-width: 800px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}

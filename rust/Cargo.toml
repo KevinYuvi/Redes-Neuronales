@@ -1,0 +1,12 @@
+[package]
+name = "rust_mnist"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+candle-core = "0.8.4"
+candle-nn = "0.8.4"
+candle-datasets = "0.8.4"
+image = "0.25"
+rand = "0.8"

@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+
+target/
+
+*.pth
+*.safetensors
+
+.vscode/
+.idea/
+
+temp_number.png
+prediccion.png
+prediccion_rust_*.png
