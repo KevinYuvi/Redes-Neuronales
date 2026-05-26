@@ -105,32 +105,21 @@ button {
     background: #f9fafb;
 }
 
+
+.logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
 .result-header {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.logo {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    font-weight: bold;
-    color: white;
-}
-
-.python-logo {
-    background: linear-gradient(135deg, #3776ab, #ffd43b);
-}
-
-.rust-logo {
-    background: linear-gradient(135deg, #ce422b, #111827);
-}
-
-.java-logo {
-    background: linear-gradient(135deg, #f89820, #5382a1);
+.result-header h3 {
+    margin: 0;
 }
 
 .prediction {

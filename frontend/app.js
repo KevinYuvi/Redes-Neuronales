@@ -105,25 +105,36 @@ async function sendImage() {
 function renderResults(data) {
     const results = document.getElementById("results");
 
-    results.innerHTML = `
-            ${renderBox("Python", data.python, "python-logo", "Py")}
-            ${renderBox("Java", data.java, "java-logo", "Jv")}
-            ${renderBox("Rust", data.rust, "rust-logo", "Rs")}
-        `;
+results.innerHTML = `
+    ${renderBox(
+        "Python",
+        data.python,
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    )}
+    ${renderBox(
+        "Java",
+        data.java,
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+    )}
+    ${renderBox(
+        "Rust",
+        data.rust,
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg"
+    )}
+`;
 }
 
-function renderBox(name, result, logoClass, logoText) {
+function renderBox(name, result, logoPath) {
     if (result.error) {
         return `
             <div class="result-box">
                 <div class="result-header">
-                    <div class="logo ${logoClass}">${logoText}</div>
+                    <img class="logo-img" src="${logoPath}" alt="${name}">
                     <h3>${name}</h3>
                 </div>
                 <p>Error: ${result.error}</p>
             </div>
         `;
-
     }
 
     const confidence = result.confidence
@@ -135,15 +146,15 @@ function renderBox(name, result, logoClass, logoText) {
         : "";
 
     return `
-    <div class="result-box">
-        <div class="result-header">
-            <div class="logo ${logoClass}">${logoText}</div>
-            <h3>${name}</h3>
-        </div>
+        <div class="result-box">
+            <div class="result-header">
+                <img class="logo-img" src="${logoPath}" alt="${name}">
+                <h3>${name}</h3>
+            </div>
 
-        <div class="prediction">${result.prediction}</div>
-        ${confidence}
-        ${time}
-    </div>
-`;
+            <div class="prediction">${result.prediction}</div>
+            ${confidence}
+            ${time}
+        </div>
+    `;
 }
