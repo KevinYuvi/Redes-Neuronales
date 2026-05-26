@@ -74,14 +74,24 @@ fn main() -> Result<()> {
         &device
     )?;
 
-    let logits = model.forward(&input)?;
-    let prediction = logits.argmax(1)?;
-    let pred_vec = prediction.to_vec1::<u32>()?;
+let logits = model.forward(&input)?;
 
-    println!(
-        "{{\"prediction\":{}}}",
-        pred_vec[0]
-    );
+// Convertir logits a probabilidades
+let probs = candle_nn::ops::softmax(&logits, 1)?;
+
+// Predicción: índice con mayor probabilidad
+let prediction = probs.argmax(1)?;
+let pred_vec = prediction.to_vec1::<u32>()?;
+
+// Obtener confianza
+let probs_vec = probs.flatten_all()?.to_vec1::<f32>()?;
+let confidence = probs_vec[pred_vec[0] as usize] * 100.0;
+
+println!(
+    "{{\"prediction\":{},\"confidence\":{:.2}}}",
+    pred_vec[0],
+    confidence
+);
 
     Ok(())
 }
