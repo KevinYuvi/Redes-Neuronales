@@ -466,8 +466,8 @@ Modelo cargado en memoria:
 
 | Lenguaje | Tiempo |
 |-----------|---------|
-| Java Spring Boot | 12.12 ms |
-| Python CPU | 12.83 ms |
-| Python GPU | 8.83 ms |
-| Rust | 57.49 ms |
+| Java Spring Boot | ≈ 12.12 ms |
+| Python CPU | ≈ 12.83 ms |
+| Python GPU | ≈ 8.83 ms |
+| Rust | ≈ 57.49 ms |
 
