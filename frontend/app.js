@@ -76,7 +76,7 @@ async function sendImage() {
     loading.classList.remove("hidden");
     results.innerHTML = "";
 
-    canvas.toBlob(async function(blob) {
+    canvas.toBlob(async function (blob) {
         const formData = new FormData();
         formData.append("file", blob, "numero.png");
 
@@ -106,9 +106,10 @@ function renderResults(data) {
     const results = document.getElementById("results");
 
     results.innerHTML = `
-        ${renderBox("Python", data.python, "python-logo", "Py")}
-        ${renderBox("Rust", data.rust, "rust-logo", "Rs")}
-    `;
+            ${renderBox("Python", data.python, "python-logo", "Py")}
+            ${renderBox("Java", data.java, "java-logo", "Jv")}
+            ${renderBox("Rust", data.rust, "rust-logo", "Rs")}
+        `;
 }
 
 function renderBox(name, result, logoClass, logoText) {
@@ -122,21 +123,27 @@ function renderBox(name, result, logoClass, logoText) {
                 <p>Error: ${result.error}</p>
             </div>
         `;
+
     }
 
     const confidence = result.confidence
         ? `<p class="confidence">Confianza: ${result.confidence}%</p>`
         : `<p class="confidence">Confianza no calculada</p>`;
 
-    return `
-        <div class="result-box">
-            <div class="result-header">
-                <div class="logo ${logoClass}">${logoText}</div>
-                <h3>${name}</h3>
-            </div>
+    const time = result.time_ms
+        ? `<p class="confidence">Tiempo: ${result.time_ms} ms</p>`
+        : "";
 
-            <div class="prediction">${result.prediction}</div>
-            ${confidence}
+    return `
+    <div class="result-box">
+        <div class="result-header">
+            <div class="logo ${logoClass}">${logoText}</div>
+            <h3>${name}</h3>
         </div>
-    `;
+
+        <div class="prediction">${result.prediction}</div>
+        ${confidence}
+        ${time}
+    </div>
+`;
 }

@@ -129,6 +129,10 @@ button {
     background: linear-gradient(135deg, #ce422b, #111827);
 }
 
+.java-logo {
+    background: linear-gradient(135deg, #f89820, #5382a1);
+}
+
 .prediction {
     font-size: 52px;
     font-weight: 800;
