@@ -70,7 +70,7 @@ fn main() -> Result<()> {
     let mut optimizer = SGD::new(varmap.all_vars(), 0.05)?;
 
     let batch_size = 64;
-    let epochs = 1;
+    let epochs = 3;
 
     let start_train = std::time::Instant::now();
 

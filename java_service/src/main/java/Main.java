@@ -11,13 +11,15 @@ import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
+import org.deeplearning4j.util.ModelSerializer;
+import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
 
         int batchSize = 64;
-        int epochs = 1;
+        int epochs = 3;
         int seed = 123;
 
         DataSetIterator trainData = new MnistDataSetIterator(batchSize, true, seed);
@@ -70,6 +72,14 @@ public class Main {
 
         double trainSeconds = (endTrain - startTrain) / 1_000_000_000.0;
         double evalSeconds = (endEval - startEval) / 1_000_000_000.0;
+
+        ModelSerializer.writeModel(
+                model,
+                new File("mnist_model_java.zip"),
+                true
+        );
+
+        System.out.println("Modelo Java guardado");
 
         System.out.println("RESULTADOS JAVA - Deeplearning4j");
         System.out.println("--------------------------------");
